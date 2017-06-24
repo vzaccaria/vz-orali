@@ -82,7 +82,7 @@ Reaxt.createComponent("question", props => {
         {" "}{txt}
         <vspace space=".5cm" />
         <text style={{ fontsize: 0.7 }}>
-          <br />${info.answercheckmark}:
+          <br />{info.answercheckmark}:
         </text>
         <vspace space="1cm" />
         {_

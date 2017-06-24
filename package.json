@@ -1,20 +1,23 @@
 {
-  "name": "vz-orali",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "babel-cli": "6.24.1",
-    "babel-plugin-shebang": "0.0.0",
-    "babel-preset-react": "6.24.1",
-    "caporal": "0.6.0",
-    "jsx-latex": "0.4.1",
-    "lodash": "4.17.4",
-    "zaccaria-cli": "0.2.2"
-  }
+    "name": "vz-orali",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "bin": {
+        "vz-orali": "index.js"
+    },
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "babel-cli": "6.24.1",
+        "babel-plugin-shebang": "0.0.0",
+        "babel-preset-react": "6.24.1",
+        "caporal": "0.6.0",
+        "jsx-latex": "0.4.1",
+        "lodash": "4.17.4",
+        "zaccaria-cli": "0.2.2"
+    }
 }
