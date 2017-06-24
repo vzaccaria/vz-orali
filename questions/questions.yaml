@@ -1,0 +1,29 @@
+info:
+  title: Esame orale di Informatica B - AA 2016/2017 - Politecnico di Milano
+  studentname: Nome aaaand cognome
+  studentnumber: Matric
+  start: OINIZIO
+  finish: OFINE
+  question: DOMADA SU
+  answer: RISP
+  answercheckmark: SEGNARE LA RISP CORR
+
+options:
+  sheets: 1
+  nopen: 1
+
+topics:
+    - name: codifica binaria
+      questions:
+
+      - markdown: |
+          cippa *axx*
+
+          `a+b+c` is not a function
+
+          ``` css
+          body, html {
+              font-family: proxima-nova,'Proxima Nova',sans-serif;
+          }
+          ```
+

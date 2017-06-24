@@ -1,0 +1,113 @@
+
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage{fontspec,xunicode,xltxtra}
+\usepackage{tikz}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage{multicol}
+\definecolor{white}{RGB}{255,255,255}
+\definecolor{darkgray}{HTML}{333333}
+\definecolor{gray}{HTML}{4D4D4D}
+\definecolor{lightgray}{HTML}{999999}
+\definecolor{green}{HTML}{C2E15F}
+\definecolor{orange}{HTML}{FDA333}
+\definecolor{purple}{HTML}{D3A4F9}
+\definecolor{red}{HTML}{FB4485}
+\definecolor{blue}{HTML}{6CE0F1}
+\usepackage[margin={1.05cm, 3cm}, paper=a4paper]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\newenvironment{Shaded}{}{}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.56,0.13,0.00}{{#1}}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.25,0.63,0.44}{{#1}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.53,0.00,0.00}{{#1}}}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.25,0.44,0.63}{{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.73,0.40,0.53}{{#1}}}
+\newcommand{\ImportTok}[1]{{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textit{{#1}}}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.73,0.13,0.13}{\textit{{#1}}}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{{#1}}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.02,0.16,0.49}{{#1}}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.10,0.09,0.49}{{#1}}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.00,0.44,0.13}{\textbf{{#1}}}}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.40,0.40,0.40}{{#1}}}
+\newcommand{\BuiltInTok}[1]{{#1}}
+\newcommand{\ExtensionTok}[1]{{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.74,0.48,0.00}{{#1}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.49,0.56,0.16}{{#1}}}
+\newcommand{\RegionMarkerTok}[1]{{#1}}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.38,0.63,0.69}{\textbf{\textit{{#1}}}}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{1.00,0.00,0.00}{\textbf{{#1}}}}
+\newcommand{\NormalTok}[1]{{#1}}
+
+
+\begin{document}
+ 
+\newfontfamily\fonttcCm[Scale=1,Color=000000]{Minion Pro}\noindent\begin{minipage}[t]{\textwidth}\fonttcCm{}\centering{\newfontfamily\fontXolc[Scale=1,Color=000000]{Minion Pro}\noindent{\fontXolc{} \large{Esame orale di Informatica B - AA 2016/2017 - Politecnico di Milano}\vspace{.7cm} }}\end{minipage}\newline{}\newfontfamily\fontvisQ[Scale=1,Color=000000]{Minion Pro}\noindent\begin{minipage}[t]{\textwidth}\fontvisQ{}\centering{\newfontfamily\fontlEZI[Scale=1,Color=000000]{Minion Pro}\noindent{\fontlEZI{} \newfontfamily\fontWtVX[Scale=1,Color=000000]{Minion Pro}\noindent{\fontWtVX{} Nome aaaand cognome \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fontYqDh[Scale=1,Color=000000]{Minion Pro}\noindent{\fontYqDh{} Matric \_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fontyYEh[Scale=1,Color=000000]{Minion Pro}\noindent{\fontyYEh{} OINIZIO \_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fontRPWc[Scale=1,Color=000000]{Minion Pro}\noindent{\fontRPWc{} OFINE \_\_\_\_\_\_\_\_\_\_ } }}\end{minipage}\newline{}
+\renewcommand\thesection{\fontwaPe{}\arabic{section}}
+\newfontfamily\fontwaPe[Scale=1,Color=000000]{Minion Pro}
+\newfontfamily\fontQEsR[Scale=1,Color=000000]{Minion Pro}
+\section*{\fontwaPe{}DOMADA SU codifica binaria}
+{\fontQEsR{}
+ 
+cippa \emph{axx}
+
+\texttt{a+b+c} is not a function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{body, html }\KeywordTok{\{}
+    \KeywordTok{font-family:} \NormalTok{proxima-nova,}\StringTok{'Proxima Nova'}\NormalTok{,}\DataTypeTok{sans-serif}\KeywordTok{;}
+\KeywordTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\vspace{.5cm}
+\newfontfamily\fontyIRF[Scale=0.7,Color=000000]{Minion Pro}\noindent{\fontyIRF{}\newline{}RISP:}
+\vspace{4cm}
+}
+\newpage{}\newfontfamily\fontJDAU[Scale=1,Color=000000]{Minion Pro}\noindent\begin{minipage}[t]{\textwidth}\fontJDAU{}\centering{\newfontfamily\fontgpPw[Scale=1,Color=000000]{Minion Pro}\noindent{\fontgpPw{} \large{Esame orale di Informatica B - AA 2016/2017 - Politecnico di Milano}\vspace{.7cm} }}\end{minipage}\newline{}\newfontfamily\fontGWkO[Scale=1,Color=000000]{Minion Pro}\noindent\begin{minipage}[t]{\textwidth}\fontGWkO{}\centering{\newfontfamily\fontZklQ[Scale=1,Color=000000]{Minion Pro}\noindent{\fontZklQ{} \newfontfamily\fontrYvB[Scale=1,Color=000000]{Minion Pro}\noindent{\fontrYvB{} Nome aaaand cognome \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fontZnKe[Scale=1,Color=000000]{Minion Pro}\noindent{\fontZnKe{} Matric \_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fonttTKG[Scale=1,Color=000000]{Minion Pro}\noindent{\fonttTKG{} OINIZIO \_\_\_\_\_\_\_\_\_\_ }\newfontfamily\fontVhDW[Scale=1,Color=000000]{Minion Pro}\noindent{\fontVhDW{} OFINE \_\_\_\_\_\_\_\_\_\_ } }}\end{minipage}\newline{}
+\renewcommand\thesection{\fontojuf{}\arabic{section}}
+\newfontfamily\fontojuf[Scale=1,Color=000000]{Minion Pro}
+\newfontfamily\fontZiuM[Scale=1,Color=000000]{Minion Pro}
+\section*{\fontojuf{}DOMADA SU codifica binaria}
+{\fontZiuM{}
+ 
+cippa \emph{axx}
+
+\texttt{a+b+c} is not a function
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{body, html }\KeywordTok{\{}
+    \KeywordTok{font-family:} \NormalTok{proxima-nova,}\StringTok{'Proxima Nova'}\NormalTok{,}\DataTypeTok{sans-serif}\KeywordTok{;}
+\KeywordTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+
+\vspace{.5cm}
+\newfontfamily\fontryJx[Scale=0.7,Color=000000]{Minion Pro}\noindent{\fontryJx{}\newline{}RISP:}
+\vspace{4cm}
+}
+\newpage{}
+ 
+\end{document}
+
