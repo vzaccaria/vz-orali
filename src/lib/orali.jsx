@@ -12,7 +12,7 @@ Reaxt.createComponent("ruler", () => {
   return [
     <vspace space={`${x}cm`} />,
     <hrule />,
-    <vspace space={`${(-1) * x / 2}cm`} />
+    <vspace space={`${-1 * x / 2}cm`} />
   ].join("");
 });
 
@@ -20,7 +20,9 @@ Reaxt.createComponent("centered", (props, ...rchildren) => {
   return (
     <minipage>
       <centering>
-        <text> {rchildren.join("")} </text>
+        <text>
+          {" "}{rchildren.join("")}{" "}
+        </text>
       </centering>
     </minipage>
   );
@@ -29,7 +31,11 @@ Reaxt.createComponent("centered", (props, ...rchildren) => {
 Reaxt.createComponent("ask", (props, ...rchildren) => {
   let space = parseInt(_.get(props, "space", 10));
   let spaces = _.map(_.range(0, space), () => "\\_").join("");
-  return <text> {rchildren.join("")} {spaces} </text>;
+  return (
+    <text>
+      {" "}{rchildren.join("")} {spaces}{" "}
+    </text>
+  );
 });
 
 Reaxt.createComponent("title", props => {
@@ -48,10 +54,18 @@ Reaxt.createComponent("subtitle", props => {
   let info = props.info;
   return (
     <centered>
-      <ask space="20">{info.studentname}</ask>
-      <ask>{info.studentnumber}</ask>
-      <ask>{info.start}</ask>
-      <ask>{info.finish}</ask>
+      <ask space="20">
+        {info.studentname}
+      </ask>
+      <ask>
+        {info.studentnumber}
+      </ask>
+      <ask>
+        {info.start}
+      </ask>
+      <ask>
+        {info.finish}
+      </ask>
     </centered>
   );
 });
@@ -62,18 +76,39 @@ Reaxt.createComponent("question", props => {
   let info = props.info;
   let title = `${info.question} ${props.topic}`;
   let txt;
+  let usemarkdown = false;
   if (!_.isUndefined(props.markdown)) {
     txt = <markdown text={props.markdown} />;
+    usemarkdown = true;
   } else {
     txt = props.text;
   }
-  if (_.isUndefined(props.answers)) {
+  if (!_.isUndefined(props.answers)) {
     return (
       <section style={sStyle} title={title}>
         {" "}{txt}
+        <text style={{ fontsize: 0.7 }}>
+          <br />
+          ({info.answercheckmark})
+        </text>
         <vspace space=".5cm" />
-        <text style={{ fontsize: 0.7 }}><br />{info.answer}:</text>
-        <vspace space="4cm" />
+        {_.map(props.answers, it => {
+          if (!usemarkdown) {
+            return (
+              <text>
+                <br />☐ {it}
+                <br />
+              </text>
+            );
+          } else {
+            return (
+              <text>
+                <br />☐ <markdown text={it} />
+                <br />
+              </text>
+            );
+          }
+        }).join("")}
       </section>
     );
   } else {
@@ -82,14 +117,10 @@ Reaxt.createComponent("question", props => {
         {" "}{txt}
         <vspace space=".5cm" />
         <text style={{ fontsize: 0.7 }}>
-          <br />{info.answercheckmark}:
+          <br />
+          {info.answer}:
         </text>
-        <vspace space="1cm" />
-        {_
-          .map(props.answers, it => {
-            return <text><br />☐ {it}<br /></text>;
-          })
-          .join("")}
+        <vspace space="4cm" />
       </section>
     );
   }
