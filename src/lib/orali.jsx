@@ -79,7 +79,6 @@ Reaxt.createComponent("question", props => {
   let usemarkdown = false;
   if (!_.isUndefined(props.markdown)) {
     txt = <markdown text={props.markdown} />;
-    usemarkdown = true;
   } else {
     txt = props.text;
   }
@@ -92,7 +91,7 @@ Reaxt.createComponent("question", props => {
           ({info.answercheckmark})
         </text>
         <vspace space=".5cm" />
-        {_.map(props.answers, it => {
+        {_.map(_.shuffle(props.answers), it => {
           if (!usemarkdown) {
             return (
               <text>
