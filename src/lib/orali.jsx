@@ -51,21 +51,14 @@ Reaxt.createComponent("title", props => {
 });
 
 Reaxt.createComponent("subtitle", props => {
-  let info = props.info;
+  let subtitle = props.info.subtitle;
   return (
     <centered>
-      <ask space="20">
-        {info.studentname}
-      </ask>
-      <ask>
-        {info.studentnumber}
-      </ask>
-      <ask>
-        {info.start}
-      </ask>
-      <ask>
-        {info.finish}
-      </ask>
+      {_.map(subtitle, a =>
+        <ask space={a.space}>
+          {" "}{a.text}
+        </ask>
+      )}
     </centered>
   );
 });
