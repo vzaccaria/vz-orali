@@ -3,6 +3,7 @@
 let Reaxt = require("jsx-latex");
 let _ = require("lodash");
 let { $yaml, $fs } = require("zaccaria-cli");
+let debug = require("debug")("orali");
 let geometry = ["margin={1.05cm, 3cm}", "paper=a4paper"].join(", ");
 
 require("./markdown");
@@ -118,7 +119,13 @@ Reaxt.createComponent("question", props => {
   }
 });
 
-function getRandom(data, size) {
+function getRandom(data, size, options) {
+  let index = options.index;
+  let modo = options.modulo;
+  debug(`modo: ${modo}`);
+  debug(`index: ${index}`);
+  data = _.filter(data, (d, i) => i % modo === index);
+  debug(data);
   return _.take(_.shuffle(data), size);
 }
 
@@ -217,8 +224,8 @@ function parseYaml(f, options) {
     });
     data = _.groupBy(data, "open");
     data = _.map(_.range(0, options.sheets), () => {
-      let closed = getRandom(data["false"], orig.options.nclose);
-      let open = getRandom(data["true"], orig.options.nopen);
+      let closed = getRandom(data["false"], orig.options.nclose, options);
+      let open = getRandom(data["true"], orig.options.nopen, options);
       return <sheet open={open} closed={closed} info={info} />;
     });
     Reaxt.render(

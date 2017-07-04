@@ -16,6 +16,7 @@
         "babel-plugin-shebang": "0.0.0",
         "babel-preset-react": "6.24.1",
         "caporal": "0.6.0",
+        "debug": "2.6.8",
         "jsx-latex": "0.4.1",
         "lodash": "4.17.4",
         "zaccaria-cli": "0.2.2"
