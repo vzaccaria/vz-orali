@@ -7,6 +7,8 @@ prog
   .description("Generates latex for random question sheets")
   .argument("<questions>", "YAML file containing questions")
   .option("--sheets <num>", "<num> of sheets to generate", prog.INT, 1)
+  .option("--mindiff <num>", "Include difficulty from <num>", prog.INT, 1)
+  .option("--maxdiff <num>", "Include difficulty up to <num>", prog.INT, 1)
   .option(
     "--modulo <modulo>",
     "take <index> out of every <modulo>",

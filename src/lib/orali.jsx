@@ -13,7 +13,7 @@ Reaxt.createComponent("ruler", () => {
   return [
     <vspace space={`${x}cm`} />,
     <hrule />,
-    <vspace space={`${-1 * x / 2}cm`} />
+    <vspace space={`${(-1) * x / 2}cm`} />
   ].join("");
 });
 
@@ -55,11 +55,11 @@ Reaxt.createComponent("subtitle", props => {
   let subtitle = props.info.subtitle;
   return (
     <centered>
-      {_.map(subtitle, a =>
+      {_.map(subtitle, a => (
         <ask space={a.space}>
           {" "}{a.text}
         </ask>
-      )}
+      ))}
     </centered>
   );
 });
@@ -85,23 +85,25 @@ Reaxt.createComponent("question", props => {
           ({info.answercheckmark})
         </text>
         <vspace space=".5cm" />
-        {_.map(_.shuffle(props.answers), it => {
-          if (!usemarkdown) {
-            return (
-              <text>
-                <br />☐ {it}
-                <br />
-              </text>
-            );
-          } else {
-            return (
-              <text>
-                <br />☐ <markdown text={it} />
-                <br />
-              </text>
-            );
-          }
-        }).join("")}
+        {_
+          .map(_.shuffle(props.answers), it => {
+            if (!usemarkdown) {
+              return (
+                <text>
+                  <br />☐ {it}
+                  <br />
+                </text>
+              );
+            } else {
+              return (
+                <text>
+                  <br />☐ <markdown text={it} />
+                  <br />
+                </text>
+              );
+            }
+          })
+          .join("")}
       </section>
     );
   } else {
@@ -221,6 +223,14 @@ function parseYaml(f, options) {
         it.open = false;
       }
       return it;
+    });
+    data = _.filter(data, it => {
+      let diff = _.get(it, "difficulty", 1);
+      if (diff >= options.mindiff && diff <= options.maxdiff) {
+        return true;
+      } else {
+        return false;
+      }
     });
     data = _.groupBy(data, "open");
     data = _.map(_.range(0, options.sheets), () => {
