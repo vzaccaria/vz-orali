@@ -1,4 +1,6 @@
 
+> Produce a randomized latex file from a questions file, complete with headers
+
 # Install
 
 ```shell
