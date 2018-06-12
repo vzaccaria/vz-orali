@@ -13,7 +13,7 @@ Reaxt.createComponent("ruler", () => {
   return [
     <vspace space={`${x}cm`} />,
     <hrule />,
-    <vspace space={`${(-1) * x / 2}cm`} />
+    <vspace space={`${-1 * x / 2}cm`} />
   ].join("");
 });
 
@@ -21,9 +21,7 @@ Reaxt.createComponent("centered", (props, ...rchildren) => {
   return (
     <minipage>
       <centering>
-        <text>
-          {" "}{rchildren.join("")}{" "}
-        </text>
+        <text> {rchildren.join("")} </text>
       </centering>
     </minipage>
   );
@@ -34,7 +32,8 @@ Reaxt.createComponent("ask", (props, ...rchildren) => {
   let spaces = _.map(_.range(0, space), () => "\\_").join("");
   return (
     <text>
-      {" "}{rchildren.join("")} {spaces}{" "}
+      {" "}
+      {rchildren.join("")} {spaces}{" "}
     </text>
   );
 });
@@ -43,9 +42,7 @@ Reaxt.createComponent("title", props => {
   let title = props.info.title;
   return (
     <centered>
-      <large>
-        {title}
-      </large>
+      <large>{title} - (batch {props.info.index+1} of {props.info.modulo})</large>
       <vspace space=".7cm" />
     </centered>
   );
@@ -55,11 +52,7 @@ Reaxt.createComponent("subtitle", props => {
   let subtitle = props.info.subtitle;
   return (
     <centered>
-      {_.map(subtitle, a => (
-        <ask space={a.space}>
-          {" "}{a.text}
-        </ask>
-      ))}
+      {_.map(subtitle, a => <ask space={a.space}> {a.text}</ask>)}
     </centered>
   );
 });
@@ -79,37 +72,37 @@ Reaxt.createComponent("question", props => {
   if (!_.isUndefined(props.answers)) {
     return (
       <section style={sStyle} title={title}>
-        {" "}{txt}
+        {" "}
+        {txt}
         <text style={{ fontsize: 0.7 }}>
           <br />
           ({info.answercheckmark})
         </text>
         <vspace space=".5cm" />
-        {_
-          .map(_.shuffle(props.answers), it => {
-            if (!usemarkdown) {
-              return (
-                <text>
-                  <br />☐ {it}
-                  <br />
-                </text>
-              );
-            } else {
-              return (
-                <text>
-                  <br />☐ <markdown text={it} />
-                  <br />
-                </text>
-              );
-            }
-          })
-          .join("")}
+        {_.map(_.shuffle(props.answers), it => {
+          if (!usemarkdown) {
+            return (
+              <text>
+                <br />☐ {it}
+                <br />
+              </text>
+            );
+          } else {
+            return (
+              <text>
+                <br />☐ <markdown text={it} />
+                <br />
+              </text>
+            );
+          }
+        }).join("")}
       </section>
     );
   } else {
     return (
       <section style={sStyle} title={title}>
-        {" "}{txt}
+        {" "}
+        {txt}
         <vspace space=".5cm" />
         <text style={{ fontsize: 0.7 }}>
           <br />
@@ -198,6 +191,8 @@ function parseYaml(f, options) {
     let orig = $yaml(it);
     let data = orig.topics;
     let info = orig.info;
+    info.modulo = options.modulo;
+    info.index = options.index;
     data = _.filter(data, it => {
       return it.name !== "Hidden";
     });
@@ -240,7 +235,8 @@ function parseYaml(f, options) {
     });
     Reaxt.render(
       <article geometry={geometry} preamble={preamble}>
-        {" "}{data.join("")}{" "}
+        {" "}
+        {data.join("")}{" "}
       </article>
     );
   });
